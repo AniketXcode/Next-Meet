@@ -1,17 +1,22 @@
-import  MeetingTypeList  from "@/components/MeetingTypeList";
+import MeetingTypeList from "@/components/MeetingTypeList";
 import Image from "next/image";
 import Meeting from "../meeting/[id]/page";
 
 const Home = () => {
   const now = new Date();
 
-  const time = now.toLocaleTimeString("en-US", {
+  // Time in IST
+  const time = now.toLocaleTimeString("en-IN", {
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: "Asia/Kolkata",
   });
-  const date = new Intl.DateTimeFormat("en-US", { dateStyle: "full" }).format(
-    now
-  );
+
+  // Date in IST
+  const date = new Intl.DateTimeFormat("en-IN", {
+    dateStyle: "full",
+    timeZone: "Asia/Kolkata",
+  }).format(now);
 
   return (
     <section className="flex size-full flex-col gap-5 text-white">
@@ -31,8 +36,8 @@ const Home = () => {
 
         {/* Overlay content (same for both mobile & desktop) */}
         <div className="absolute inset-0 flex flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11">
-          <h2 className="glassmorphism max-w-[273px] rounded py-2 text-center text-base font-normal">
-            Upcoming Meeting at: 12:30 PM
+          <h2 className="glassmorphism max-w-[273px] rounded py-2 text-center text-base font-normal pr-7">
+            Stay Ready! Meeting ahead
           </h2>
           <div className="flex flex-col gap-2">
             <h1 className="text-4xl font-extrabold lg:text-7xl">{time}</h1>

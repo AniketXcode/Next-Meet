@@ -52,7 +52,7 @@ export default function RootLayout({
               marginBottom: "1rem",
             },
             footer: {
-              display: "none", // 🚀 removes "Secured by Clerk" credit
+              display: "none", 
             },
           },
         }}
