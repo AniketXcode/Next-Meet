@@ -68,7 +68,10 @@ const MeetingTypeList = () => {
 
   if (!client || !user) return <Loader />;
 
-  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetail?.id}`;
+  // ✅ Safe full meeting link (uses production domain if available)
+  const meetingLink = callDetail
+    ? `${process.env.NEXT_PUBLIC_BASE_URL || window.location.origin}/meeting/${callDetail.id}`
+    : "";
 
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -161,7 +164,25 @@ const MeetingTypeList = () => {
         title="Type the link here"
         className="text-center"
         buttonText="Join Meeting"
-        handleClick={() => router.push(values.link)}
+        handleClick={() => {
+          try {
+            let link = values.link.trim();
+
+            if (link.startsWith("http")) {
+              const url = new URL(link);
+              link = url.pathname;
+            }
+
+            if (link.startsWith("/meeting/")) {
+              router.push(link);
+              return;
+            }
+
+            router.push(`/meeting/${link}`);
+          } catch (err) {
+            toast.error("Invalid meeting link ❌");
+          }
+        }}
       >
         <Input
           placeholder="Meeting link"
