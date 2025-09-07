@@ -19,8 +19,6 @@ TailwindCSS + ShadCN
 Clerk Authentication
 Stream Video SDK
 
-📸 Screenshots
-
 🚀 Getting Started
 1. Clone the repo
 git clone https://github.com/your-username/nextmeet.git
