@@ -21,13 +21,14 @@ Stream Video SDK
 
 🚀 Getting Started
 1. Clone the repo
-git clone https://github.com/your-username/nextmeet.git
+git clone https://github.com/AniketXcode
+/nextmeet.git
 cd nextmeet
 
-2. Install dependencies
+3. Install dependencies
 npm install
 
-3. Add environment variables
+4. Add environment variables
 
 Create a .env.local file and add:
 
