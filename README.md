@@ -41,10 +41,7 @@ npm run dev
 
 App will be available at: http://localhost:3000
 
-🌐 Live Demo
-👉 Click here to try NextMeet
-📂 GitHub Repo
-👉 NextMeet Repository
+🌐 Live Demo :-(https://next-meet-chi.vercel.app)
 
 📌 Note
 This project is not a full production app. It was built mainly for learning and exploring Next.js, Clerk, and Stream SDK.
